@@ -1,5 +1,5 @@
 # import modules
-from area import area_to_acre
+from app.area import area_to_acre
 from flask import Flask, jsonify, request
 
 # instantiate Flask object
@@ -22,8 +22,3 @@ def get_area():
     area = area_to_acre(length, width)
 
     return jsonify({"area_in_acre": area, "input": packet})
-
-
-# main driver function
-if __name__ == '__main__':
-    app.run(debug=True)
