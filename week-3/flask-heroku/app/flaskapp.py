@@ -1,5 +1,5 @@
 # import modules
-from area import area_to_acre
+from app.area import area_to_acre
 from flask import Flask, jsonify, request
 
 # instantiate Flask object
