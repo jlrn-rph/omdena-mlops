@@ -6,7 +6,6 @@ Output: 'Daily_radiation'
 """
 
 # import modules
-import pickle
 from flask import Flask, jsonify, request
 import numpy as np
 import joblib
@@ -15,7 +14,7 @@ import joblib
 app = Flask(__name__)
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
 def get_input():
     """
     A Flask script to interface the ML model and the user request.
@@ -31,8 +30,7 @@ def get_input():
 
     # load the model from disk
     # filename = "model_gbr.pkl"
-    # loaded_model = joblib.load("model_gbr.pkl")
-    loaded_model = pickle.load(open('model_gbr.pkl', 'rb'))
+    loaded_model = joblib.load("model_gbr.pkl")
 
     # generate prediction
     solar_irradiation = loaded_model.predict(data)[0]
