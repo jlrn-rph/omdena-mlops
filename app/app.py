@@ -29,8 +29,8 @@ def get_input():
     data = np.array(input_data).reshape(1, 10)
 
     # load the model from disk
-    filename = "model_gbr.pkl"
-    loaded_model = joblib.load(filename)
+    # filename = "model_gbr.pkl"
+    loaded_model = joblib.load("model_gbr.pkl")
 
     # generate prediction
     solar_irradiation = loaded_model.predict(data)[0]
