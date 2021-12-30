@@ -29,7 +29,7 @@ def get_input():
     data = np.array(input_data).reshape(1, 10)
 
     # load the model from disk
-    filename = "model_gbr.pkl"
+    filename = "../models/model_gbr.pkl"
     loaded_model = joblib.load(filename)
 
     # generate prediction
