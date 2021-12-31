@@ -9,6 +9,7 @@ Output: 'Daily_radiation'
 from flask import Flask, jsonify, request
 import numpy as np
 import joblib
+import pickle
 
 # instantiate flask object
 app = Flask(__name__)
@@ -30,7 +31,8 @@ def get_input():
 
     # load the model from disk
     # filename = "model_gbr.pkl"
-    loaded_model = joblib.load("model_gbr.pkl", mmap_mode=None)
+    loaded_model = joblib.load("model_gbr.pkl")
+    # loaded_model = pickle.load(open("model_gbr.pkl", "rb"))
 
     # generate prediction
     solar_irradiation = loaded_model.predict(data)[0]
